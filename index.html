@@ -4,82 +4,30 @@
     <meta charset="utf-8"> 
       <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css" type="text/css" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+      
+      <link href="css/default.css" type="text/css" rel="stylesheet">
+      
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js" type="application/javascript"></script>
-       <script src="js/custom.js" type="application/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.1/angular-sanitize.js"></script>
+      
+       <script src="js/main/app.js" type="application/javascript"></script>
+       <script src="js/controller/mainCtrl.js" type="application/javascript"></script>
+       <script src="js/directive/dragDir.js" type="application/javascript"></script>
+       <script src="js/directive/dropDir.js" type="application/javascript"></script>
+      
   </head>
-<body>
-<div class="container-fluid" ng-app="dataTable">
-  <div ng-controller="tableCtrl">
-    <!--<tabledir tabledata="tabledata"></tabledir>-->
-    <form>
-      <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-search"></i>
-          </div>
-          <input type="text" ng-model="searchTable" placeholder="Enter text to search" class="form-control">
-        </div>
-      </div>
-      <form>
-   <table class="table table-bordered">
-     <thead>
-       <tr>
-       <th>
-         <a ng-click="sortType='name';sortReverse=!sortReverse"> 
-           Name
-           <span ng-show="sortType=='name'&&!sortReverse">
-             <i class="fa fa-caret-down"></i>
-           </span>
-           <span ng-show="sortType=='name'&&sortReverse">
-             <i class="fa fa-caret-up"></i>
-           </span>
-         </a>
-       </th>
-         <th>
-        <a ng-click="sortType='age';sortReverse=!sortReverse"> 
-           Age
-           <span ng-show="sortType=='age'&&!sortReverse">
-             <i class="fa fa-caret-down"></i>
-           </span>
-           <span ng-show="sortType=='age'&&sortReverse">
-             <i class="fa fa-caret-up"></i>
-           </span>
-         </a>
-       </th>
-         <th>
-         <a ng-click="sortType='id';sortReverse=!sortReverse"> 
-           Id
-           <span ng-show="sortType=='id'&&!sortReverse">
-             <i class="fa fa-caret-down"></i>
-           </span>
-           <span ng-show="sortType=='id'&&sortReverse">
-             <i class="fa fa-caret-up"></i>
-           </span>
-         </a>
-       </th>
-         <th>
-        <a ng-click="sortType='city';sortReverse=!sortReverse"> 
-          City
-           <span ng-show="sortType=='city'&&!sortReverse">
-             <i class="fa fa-caret-down"></i>
-           </span>
-           <span ng-show="sortType=='city'&&sortReverse">
-             <i class="fa fa-caret-up"></i>
-           </span>
-         </a>
-       </th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr ng-repeat="item in tableData|orderBy:sortType:sortReverse|filter:searchTable">
-         <td>{{item.name}}</td>
-         <td>{{item.age}}</td>
-         <td>{{item.id}}</td>
-         <td>{{item.city}}</td>
-       </tr>
-     </tbody>
-    </table>
-  </div>
-</div>
+<body ng-app="dropApp" ng-controller="listCtrl">
+ <div class="parentDiv">
+     <div class="containerDiv floatLeft">
+       <ul >
+         <li ng-repeat="item in DetailList" draggable>
+           {{item.text}}
+         </li>
+       </ul>
+     </div>
+     <div class="containerDiv floatRight" droppable>
+       
+     </div>
+   </div>
 </body>
 </html>

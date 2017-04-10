@@ -1,0 +1,23 @@
+  body {
+  background-color: #a3d5d3;
+}
+.floatLeft{
+  float:left;
+}
+.floatRight{
+  float:right;
+}
+.containerDiv{
+  height:200px;
+  width:48%;  
+  border:1px solid;
+  margin:5px 5px 5px 5px
+}
+.containerDiv ul li{
+  list-style:none;
+  font-size:20px;
+  border-bottom:1px solid gray;
+}
+.containerDiv ul li:hover{
+  cursor:move
+}
