@@ -13,20 +13,32 @@
        <script src="js/main/app.js" type="application/javascript"></script>
        <script src="js/controller/mainCtrl.js" type="application/javascript"></script>
        <script src="js/directive/dragDir.js" type="application/javascript"></script>
-       <script src="js/directive/dropDir.js" type="application/javascript"></script>
+       <script src="js/directive/dropDirNonTrusted.js" type="application/javascript"></script>
+      <script src="js/directive/dropDirTrusted.js" type="application/javascript"></script>
       
   </head>
 <body ng-app="dropApp" ng-controller="listCtrl">
  <div class="parentDiv">
-     <div class="containerDiv floatLeft">
+     <div class="containerDiv draggableArea">
        <ul >
          <li ng-repeat="item in DetailList" draggable>
            {{item.text}}
          </li>
        </ul>
      </div>
-     <div class="containerDiv floatRight" droppable>
-       
+    <!-- <div>
+     <div class="floatLeft">
+         <p>Trusted Html</p>
+     </div>
+     <div class="floatRight">
+         <p>Non-trusted Html</p>
+     </div>
+    </div>-->
+     <div class="containerDiv floatLeft droppableArea" droppabletrusted>
+         
+     </div>
+      <div class="containerDiv floatRight droppableArea" droppablenontrusted>
+         
      </div>
    </div>
 </body>

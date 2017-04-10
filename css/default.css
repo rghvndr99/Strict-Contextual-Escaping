@@ -8,10 +8,15 @@
   float:right;
 }
 .containerDiv{
-  height:200px;
-  width:48%;  
+  height:200px;   
   border:1px solid;
   margin:5px 5px 5px 5px
+}
+draggableArea{
+   width:100%;  
+}
+.droppableArea{
+    width:48%; 
 }
 .containerDiv ul li{
   list-style:none;
@@ -20,4 +25,10 @@
 }
 .containerDiv ul li:hover{
   cursor:move
+}
+.defaulttext{
+  border:none !important;
+  text-align:center;
+  color:#7d5c0d; 
+  font-weight: bold;
 }
